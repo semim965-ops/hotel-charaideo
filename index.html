@@ -519,7 +519,38 @@
             <div class="eyebrow">Your Kaziranga Visit</div>
             <h2>Looking for a Room?</h2>
             <p>Contact Hotel Charaideo to discuss room availability and negotiable rent.</p>
-            <div class="actions" style="justify-content:center">
+            
+<form id="room-enquiry-form" style="max-width:620px;margin:24px auto;text-align:left;display:grid;gap:14px">
+  <label for="guest-name">Your Name</label>
+  <input id="guest-name" name="guestName" type="text" required placeholder="Enter your full name" style="padding:12px;border:1px solid #aaa;border-radius:8px">
+
+  <label for="guest-phone">Your Phone Number</label>
+  <input id="guest-phone" name="guestPhone" type="tel" required placeholder="Enter your phone number" style="padding:12px;border:1px solid #aaa;border-radius:8px">
+
+  <label for="check-in">Check-in Date</label>
+  <input id="check-in" name="checkIn" type="date" required style="padding:12px;border:1px solid #aaa;border-radius:8px">
+
+  <label for="check-out">Check-out Date</label>
+  <input id="check-out" name="checkOut" type="date" required style="padding:12px;border:1px solid #aaa;border-radius:8px">
+
+  <label for="guest-count">Number of Guests</label>
+  <select id="guest-count" name="guestCount" required style="padding:12px;border:1px solid #aaa;border-radius:8px">
+    <option value="1">1 guest</option>
+    <option value="2" selected>2 guests</option>
+    <option value="3">3 guests</option>
+    <option value="4">4 guests</option>
+    <option value="5+">5 or more guests</option>
+  </select>
+
+  <label for="guest-message">Additional Message (Optional)</label>
+  <textarea id="guest-message" name="message" rows="3" placeholder="Any questions or special requests?" style="padding:12px;border:1px solid #aaa;border-radius:8px"></textarea>
+
+  <button type="submit" class="btn btn-gold" style="cursor:pointer">Send Room Enquiry on WhatsApp</button>
+  <p style="font-size:13px;opacity:.8">This sends an enquiry only. Your booking is confirmed only after the hotel replies.</p>
+</form>
+
+
+           <div class="actions" style="justify-content:center">
                 <a class="btn btn-gold"
                    href="https://wa.me/918638337976?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20a%20room."
                    target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
@@ -616,6 +647,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("year").textContent = new Date().getFullYear();
 });
+
+  // Handle room enquiries through WhatsApp
+  var roomForm = document.getElementById("room-enquiry-form");
+
+  if (roomForm) {
+    roomForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      var guestName = document.getElementById("guest-name").value.trim();
+      var guestPhone = document.getElementById("guest-phone").value.trim();
+      var checkIn = document.getElementById("check-in").value;
+      var checkOut = document.getElementById("check-out").value;
+      var guestCount = document.getElementById("guest-count").value;
+      var guestMessage = document.getElementById("guest-message").value.trim();
+
+      if (checkOut <= checkIn) {
+        alert("Check-out date must be after the check-in date.");
+        return;
+      }
+
+      var message =
+        "Room Enquiry - Hotel Charaideo\n\n" +
+        "Name: " + guestName + "\n" +
+        "Phone: " + guestPhone + "\n" +
+        "Check-in: " + checkIn + "\n" +
+        "Check-out: " + checkOut + "\n" +
+        "Number of guests: " + guestCount + "\n" +
+        "Additional message: " + (guestMessage || "None");
+
+      var whatsappUrl =
+        "https://wa.me/918638337976?text=" +
+        encodeURIComponent(message);
+
+      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    });
+  }
+    
 </script>
 </body>
 </html>
