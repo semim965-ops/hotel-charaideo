@@ -265,7 +265,129 @@
             border-radius: 15px;
         }
 
-        .cta {
+       
+/* Hotel photo gallery */
+        
+/* Premium gallery placeholders */
+.gallery-section {
+    background: #101114;
+    border-block: 1px solid #ffffff0d;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.gallery-placeholder {
+    min-height: 220px;
+    padding: 28px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: linear-gradient(145deg, #1c1b19, #111214);
+    transition: transform .25s, border-color .25s;
+}
+
+.gallery-placeholder:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+}
+
+.gallery-icon {
+    width: 58px;
+    height: 58px;
+    margin-bottom: 16px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    color: var(--gold);
+    font-size: 30px;
+}
+
+.gallery-placeholder h3 {
+    color: var(--gold);
+    margin-bottom: 8px;
+}
+
+.gallery-placeholder p {
+    color: var(--muted);
+    margin-bottom: 16px;
+}
+
+.gallery-placeholder span {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--gold);
+}
+
+@media (max-width: 800px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 520px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.gallery-section {
+    background: #101114;
+    border-block: 1px solid #ffffff0d;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--panel);
+    transition: transform .25s, border-color .25s;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+}
+
+.gallery-item img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.gallery-item figcaption {
+    padding: 13px 15px;
+    color: var(--gold);
+    font-weight: bold;
+}
+
+@media (max-width: 800px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 520px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
+ .cta {
             text-align: center;
             padding: 48px 20px;
             border: 1px solid var(--border);
@@ -371,7 +493,10 @@
 
         <nav class="links" id="navLinks" aria-label="Main navigation">
             <a href="#home">Home</a>
-            <a href="#facilities">Facilities</a>
+            
+<a href="#facilities">Facilities</a>
+<a href="#gallery">Gallery</a>
+
             <a href="#tours">Safari &amp; Tours</a>
             <a href="#contact">Contact</a>
         </nav>
@@ -453,7 +578,61 @@
         </div>
     </section>
 
-    <section class="content tour-section" id="tours">
+  
+   
+    
+
+<section class="content gallery-section" id="gallery">
+    <div class="container">
+        <div class="heading">
+            <div class="eyebrow">Discover Our Hospitality</div>
+            <h2>Hotel <span class="gold">Gallery</span></h2>
+            <p>A comfortable stay and memorable experiences await you in Kaziranga.</p>
+        </div>
+
+        <div class="gallery-grid">
+            <article class="gallery-placeholder">
+                <div class="gallery-icon">⌂</div>
+                <h3>Our Rooms</h3>
+                <p>Comfortable rooms for your stay.</p>
+                <span>PHOTOS COMING SOON</span>
+            </article>
+            <article class="gallery-placeholder">
+                <div class="gallery-icon">✦</div>
+                <h3>Hotel Exterior</h3>
+                <p>Find us in Kohora, Kaziranga.</p>
+                <span>PHOTOS COMING SOON</span>
+            </article>
+            <article class="gallery-placeholder">
+                <div class="gallery-icon">♨</div>
+                <h3>Room Facilities</h3>
+                <p>Geyser facilities and guest comfort.</p>
+                <span>PHOTOS COMING SOON</span>
+            </article>
+            <article class="gallery-placeholder">
+                <div class="gallery-icon">◇</div>
+                <h3>Parking</h3>
+                <p>Ask us about guest parking.</p>
+                <span>PHOTOS COMING SOON</span>
+            </article>
+            <article class="gallery-placeholder">
+                <div class="gallery-icon">✧</div>
+                <h3>Kaziranga Safari</h3>
+                <p>Enquire about safari arrangements.</p>
+                <span>PHOTOS COMING SOON</span>
+            </article>
+            <article class="gallery-placeholder">
+                <div class="gallery-icon">◎</div>
+                <h3>Explore Kaziranga</h3>
+                <p>Discover the surrounding attractions.</p>
+                <span>PHOTOS COMING SOON</span>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="content tour-section" id="tours">
+        
         <div class="container tour">
             <div class="tour-image" role="img" aria-label="Forest landscape"></div>
             <div>
